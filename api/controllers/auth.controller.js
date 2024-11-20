@@ -23,7 +23,18 @@ catch(err){console.log(err);
 }
 export const login =(req,res)=>{
     //eval 
-    console.log("login end point");
+    const {username,password} = req.body;
+    try(){
+    const user = await prisma.user.findUnique({
+        where:{username}
+    })
+    if(!userna)
+    }
+    catch(err){
+        console.log(err);
+    res.status(201).json({message: "Failed to login"});
+
+    }
 }
 export const logout =(req,res)=>{
     //eval 
